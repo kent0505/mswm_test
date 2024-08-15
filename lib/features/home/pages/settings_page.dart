@@ -2,12 +2,26 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:mswm_test/core/widgets/title_card.dart';
 
 import '../../../core/utils.dart';
 import '../../../core/widgets/custom_scaffold.dart';
 
-class SettingsPage extends StatelessWidget {
+class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
+
+  @override
+  State<SettingsPage> createState() => _SettingsPageState();
+}
+
+class _SettingsPageState extends State<SettingsPage> {
+  bool sound = false;
+
+  void onSound() {
+    setState(() {
+      sound = !sound;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,10 +30,10 @@ class SettingsPage extends StatelessWidget {
       body: Stack(
         children: [
           Positioned(
-            top: 32 + getStatusBar(context),
+            top: 72 + getStatusBar(context),
             left: 0,
             right: 0,
-            child: SvgPicture.asset('assets/settings_title.svg'),
+            child: const TitleCard('Settings'),
           ),
           Center(
             child: Container(
@@ -64,21 +78,65 @@ class SettingsPage extends StatelessWidget {
                   child: Column(
                     children: [
                       const SizedBox(height: 25),
-                      Stack(
-                        children: [
-                          SvgPicture.asset('assets/settings_button1.svg'),
-                          const Positioned(
-                            top: 8,
-                            left: 15,
-                            child: Text(
-                              'SOUND',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20,
+                      CupertinoButton(
+                        onPressed: onSound,
+                        padding: EdgeInsets.zero,
+                        minSize: 39,
+                        child: Stack(
+                          children: [
+                            SvgPicture.asset('assets/settings_button1.svg'),
+                            const Positioned(
+                              top: 8,
+                              left: 15,
+                              child: Text(
+                                'SOUND',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                ),
                               ),
                             ),
-                          ),
-                        ],
+                            Positioned(
+                              right: 15,
+                              top: 15,
+                              child: Container(
+                                height: 13,
+                                width: 24,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(6),
+                                  border: Border.all(
+                                    width: 1,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                child: Stack(
+                                  children: [
+                                    AnimatedPositioned(
+                                      top: 1,
+                                      left: sound ? 13 : 1,
+                                      right: sound ? 1 : 13,
+                                      duration:
+                                          const Duration(milliseconds: 400),
+                                      child: AnimatedContainer(
+                                        duration:
+                                            const Duration(milliseconds: 300),
+                                        height: 9,
+                                        width: 9,
+                                        decoration: BoxDecoration(
+                                          color: sound
+                                              ? const Color(0xff45FF17)
+                                              : const Color(0xffFF172D),
+                                          borderRadius:
+                                              BorderRadius.circular(5),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                       const SizedBox(height: 25),
                       CupertinoButton(
