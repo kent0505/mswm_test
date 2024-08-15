@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 
+import '../utils.dart';
+import 'buttons/arrow_back_button.dart';
+
 class CustomScaffold extends StatelessWidget {
   const CustomScaffold({
     super.key,
     required this.body,
     this.bg = 1,
+    this.back = false,
   });
 
   final Widget body;
   final int bg;
+  final bool back;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +27,6 @@ class CustomScaffold extends StatelessWidget {
             fit: BoxFit.cover,
             width: double.infinity,
           ),
-          // Container(height: MediaQuery.of(context).viewPadding.top),
           Container(
             height: 273,
             decoration: BoxDecoration(
@@ -54,6 +58,12 @@ class CustomScaffold extends StatelessWidget {
               ),
             ),
           ),
+          if (back)
+            Positioned(
+              top: 32 + getStatusBar(context),
+              left: 25,
+              child: const ArrowBackButton(),
+            ),
           body,
         ],
       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/widgets/custom_appbar.dart';
 import '../../../core/widgets/custom_scaffold.dart';
 
 class HomePage extends StatelessWidget {
@@ -10,7 +11,7 @@ class HomePage extends StatelessWidget {
     return const CustomScaffold(
       body: Column(
         children: [
-          Text('Home'),
+          CustomAppbar(),
         ],
       ),
     );

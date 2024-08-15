@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/widgets/custom_scaffold.dart';
+
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      children: [
-        Text('Settings'),
-      ],
+    return const CustomScaffold(
+      back: true,
+      body: Column(
+        children: [],
+      ),
     );
   }
 }
