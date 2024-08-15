@@ -9,11 +9,13 @@ class CustomScaffold extends StatelessWidget {
     required this.body,
     this.bg = 1,
     this.back = false,
+    this.dark = false,
   });
 
   final Widget body;
   final int bg;
   final bool back;
+  final bool dark;
 
   @override
   Widget build(BuildContext context) {
@@ -58,6 +60,10 @@ class CustomScaffold extends StatelessWidget {
               ),
             ),
           ),
+          if (dark)
+            Container(
+              color: const Color(0xff1B1B22).withOpacity(0.6),
+            ),
           if (back)
             Positioned(
               top: 32 + getStatusBar(context),
