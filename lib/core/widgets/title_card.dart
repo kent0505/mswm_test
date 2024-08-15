@@ -123,7 +123,7 @@ class TitleCard extends StatelessWidget {
                                   fontWeight: FontWeight.bold,
                                   foreground: Paint()
                                     ..style = PaintingStyle.stroke
-                                    ..strokeWidth = 3
+                                    ..strokeWidth = 1
                                     ..color = Colors.white, // <-- Border color
                                 ),
                               ),
