@@ -24,6 +24,7 @@ flutter:
   assets:
     - assets/
     - assets/fonts/
+    - assets/spinner/
   fonts:
     - family: Acme
       fonts:
