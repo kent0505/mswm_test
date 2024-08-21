@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../core/widgets/custom_appbar.dart';
 import '../../../core/widgets/custom_scaffold.dart';
@@ -12,15 +13,19 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CustomScaffold(
+    return CustomScaffold(
       body: Column(
         children: [
-          CustomAppbar(),
-          SizedBox(height: 95),
-          TitleCard('Alien Invasion'),
-          Spacer(),
-          PlayButton(),
-          Row(
+          const CustomAppbar(),
+          const SizedBox(height: 95),
+          const TitleCard('Alien Invasion'),
+          const Spacer(),
+          PlayButton(
+            onPressed: () {
+              context.push('/onboard3');
+            },
+          ),
+          const Row(
             children: [
               SizedBox(width: 25),
               DailyRewardButton(),
@@ -29,7 +34,7 @@ class HomePage extends StatelessWidget {
               SizedBox(width: 25),
             ],
           ),
-          SizedBox(height: 32),
+          const SizedBox(height: 32),
         ],
       ),
     );

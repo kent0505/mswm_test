@@ -20,15 +20,42 @@ int getCurrentTimestamp() {
   return DateTime.now().millisecondsSinceEpoch ~/ 1000;
 }
 
-final List<String> assets = [
-  'assets/bg1.png',
-];
+// final List<String> assets = [
+//   'assets/bg1.png',
+//   'assets/bg2.png',
+//   'assets/bg3.png',
+//   'assets/bg4.png',
+//   'assets/bg5.png',
+//   'assets/bg6.png',
+//   'assets/bg7.png',
+//   'assets/bg8.png',
+//   'assets/bg9.png',
+// ];
 
-void precache(BuildContext context) async {
-  for (String asset in assets) {
-    await precacheImage(AssetImage(asset), context);
-  }
-}
+// final List<String> assets2 = [
+//   'assets/bg10.png',
+//   'assets/bg11.png',
+//   'assets/bg12.png',
+//   'assets/bg13.png',
+//   'assets/bg14.png',
+//   'assets/bg15.png',
+//   'assets/bg16.png',
+//   'assets/bg17.png',
+//   'assets/bg18.png',
+//   'assets/bg19.png',
+// ];
+
+// void precache(BuildContext context) async {
+//   for (String asset in assets) {
+//     precacheImage(AssetImage(asset), context);
+//   }
+// }
+
+// void precache2(BuildContext context) async {
+//   for (String asset in assets2) {
+//     precacheImage(AssetImage(asset), context);
+//   }
+// }
 
 double getStatusBar(BuildContext context) {
   return MediaQuery.of(context).viewPadding.top;

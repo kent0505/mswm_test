@@ -3,12 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class PlayButton extends StatelessWidget {
-  const PlayButton({super.key});
+  const PlayButton({
+    super.key,
+    required this.onPressed,
+  });
+
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
     return CupertinoButton(
-      onPressed: () {},
+      onPressed: onPressed,
       padding: EdgeInsets.zero,
       child: SizedBox(
         height: 90,
